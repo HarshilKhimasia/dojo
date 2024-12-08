@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root color variables */
+:root {
+  --primaryColor: #2f4f4f; /* Dark Slate Gray */
+  --secondaryColor: #507575; /* Lime Green */
+  --accentColor: #2f4f4f; /* Sunset Orange */
+  --textColor: #333333; /* Charcoal Black */
+  --backgroundColor: #f5f5f5; /* Light Gray */
+}
+
+/* Define custom font classes */
+@layer base {
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primaryColor);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondaryColor);
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #fe4600;
+}
+
+::selection {
+  color: white;
+  background: #fe4600;
+}
+
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Global styles */
+body {
+  @apply bg-[var(--backgroundColor)] text-[var(--textColor)] font-roboto;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Heading styles */
+.heading {
+  @apply font-poppins font-bold text-[var(--primaryColor)];
+}
+
+/* Text and element styles */
+.text-body {
+  @apply text-[var(--textColor)] font-roboto;
+}
+
+.text-accent {
+  @apply text-[var(--accentColor)];
+}
+
+.bg-primary {
+  @apply bg-[var(--primaryColor)];
+}
+
+.bg-accent {
+  @apply bg-[var(--accentColor)];
+}
+
+/* Button styling */
+.btn {
+  @apply text-white bg-[var(--accentColor)] font-bold px-4 py-2 rounded text-center;
+  transition: background-color 0.3s ease;
+}
+.outline-btn {
+  @apply text-[#4e4e4e] bg-transparent font-bold px-4 py-2 rounded text-center;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  @apply bg-[var(--secondaryColor)];
+}
+
+.highlighted-link {
+  @apply text-[var(--accentColor)] font-bold;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #50757547;
+  --webkit-text-decoration-color: #50757547; /* Safari */
+
+  transition: all 0.3s ease;
+}
+
+.highlighted-link:hover {
+  @apply text-[var(--accentColor)];
+  text-decoration-color: var(--accentColor);
+  --webkit-text-decoration-color: var(--accentColor); /* Safari */
+  text-decoration: underline;
+}
+
+.welcome-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-btn {
+  margin-top: 60px;
+  margin-bottom: 100px;
+  width: 250px;
+}
+
+.def-welcome {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.5s ease-in;
+}
+
+.after-welcome {
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.def-img {
+  transform: scale(1) translate(0px, 0%);
+  transition: all 0.5s ease-in;
+}
+
+.after-img {
+  transform: scale(1.3) translate(0px, 50%);
+  transition: all 0.5s ease-in;
+}
+
+.mainNav {
+  background-color: var(--primaryColor);
+  color: #fff;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  padding: 20px;
+  transform: translateX(100%);
+  transition: all 0.3s ease-out;
+  z-index: 99999999;
+}
+.slideAnimeBefore {
+  background-color: var(--primaryColor);
+  color: #fff;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  padding: 20px;
+  transform: translateX(0%);
+  transition: all 0.3s ease-in;
+  z-index: 99999999;
+}
+
+.nav-list {
+  background-color: #395e5e;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list.active {
+  background-color: #fe4504;
+}
+
+.logoBlock {
+  padding: 15px 20px;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.todoModal {
+  background-color: #fff;
+  border-radius: 12px;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.modalOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #cccccc82;
+  top: 0;
+  left: 0;
+  overflow: overlay;
+  z-index: 99999;
+}
+
+.okayButton {
+  background: aqua;
+  padding: 10px 40px;
+  margin: auto;
+  display: block;
+}
+
+.checkbox-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: flex-start;
+  margin-top: 15px;
+  justify-content: flex-start;
+}
+
+.checkbox {
+  opacity: 0; /* Hide the default checkbox */
+  width: 0px;
+}
+
+.checkbox-label {
+  background-color: #cccccc99;
+
+  border-radius: 50%; /* Circle shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Hide the tick mark when unchecked */
+  transition: background-color 0.3s;
+}
+
+.checkmark {
+  stroke: white;
+  stroke-width: 2;
+  stroke-dasharray: 60; /* Length of the path */
+  stroke-dashoffset: 60; /* Hide the path */
+  fill: none;
+  transition: stroke-dashoffset 0.4s, opacity 0.2s;
+  width: 44px;
+  height: 44px;
+}
+
+.checkbox:checked + .checkbox-label {
+  background-color: #4caf50; /* Green color when checked */
+}
+
+.checkbox:checked + .checkbox-label .checkmark {
+  stroke-dashoffset: 0; /* Show the checkmark */
+  opacity: 1; /* Ensure checkmark is visible */
+}
+
+.add-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #000; /* Initial background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Plus Sign Style */
+.plus {
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Animation */
+.add-button:hover {
+  transform: scale(1.1); /* Slightly enlarges the button */
+  background-color: #507575; /* Change background color */
+  box-shadow: 0 8px 16px rgb(0 10 0 / 31%); /* Add glow effect */
+}
+
+/* Rotate the Plus Sign */
+.add-button:hover .plus {
+  transform: rotate(45deg); /* Rotates the plus sign */
+}
+
+.gridLi {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.deletCol {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.completedOutlineBtn {
+  color: #4bb543 !important;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mainImg {
+  width: 200px;
+}
+
+@media only screen and (min-width: 640px) {
+  .after-img {
+    transform: scale(1.8) translate(0px, 20%);
+  }
+  .gridLi {
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+  }
+
+  .deletCol {
+    position: relative;
+    bottom: unset;
+    right: unset;
+  }
+  .checkbox-label {
+    background-color: #cccccc2e;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .checkbox-container {
+    justify-content: center;
+    margin-top: 0;
+  }
+}
